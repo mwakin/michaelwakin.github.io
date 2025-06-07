@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Wakin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: #333;
+            background-color: #f9f7f3;
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 380px;
+            padding: 40px 25px;
+            background-color: #FFFFFF;
+            border-right: 1px solid #e6e1d6;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #4a4238;
+        }
+        
+        .bio {
+            max-width: 700px;
+            margin-top: 80px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5c5548;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .category {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #4a4238;
+            border-bottom: 1px solid #e6e1d6;
+            padding-bottom: 8px;
+        }
+        
+        .articles {
+            list-style-type: none;
+        }
+        
+        .articles li {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #6b635a;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .articles li .title {
+            flex: 1;
+        }
+        
+        .articles li .date {
+            color: #8a7b68;
+            font-size: 14px;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        
+        .articles li:hover .title {
+            color: #8a7b68;
+        }
+        
+        /* Simple animation for article hover */
+        .articles li:hover .title:before {
+            content: "→ ";
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="category-section">
+            <div class="category">Associated Press</div>
+            <ul class="articles">
+                <li>
+                    <span class="title">Foreign Aid Bill Stalemate</span>
+                    <span class="date">04/2025</span>
+                </li>
+                <li>
+                    <span class="title">Ukraine Military Support</span>
+                    <span class="date">03/2025</span>
+                </li>
+                <li>
+                    <span class="title">Middle East Tensions</span>
+                    <span class="date">01/2025</span>
+                </li>
+                <li>
+                    <span class="title">Economic Sanctions Impact</span>
+                    <span class="date">11/2024</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="category-section">
+            <div class="category">Oxford Political Review</div>
+            <ul class="articles">
+                <li>
+                    <span class="title">Global Financial Regulations</span>
+                    <span class="date">02/2025</span>
+                </li>
+                <li>
+                    <span class="title">International Monetary Policy</span>
+                    <span class="date">12/2024</span>
+                </li>
+                <li>
+                    <span class="title">UK-EU Trade Relations</span>
+                    <span class="date">09/2024</span>
+                </li>
+                <li>
+                    <span class="title">Central Banking Strategy</span>
+                    <span class="date">07/2024</span>
+                </li>
+                <li>
+                    <span class="title">Oxford's Economic Future</span>
+                    <span class="date">04/2024</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="category-section">
+            <div class="category">Kenyon Observer</div>
+            <ul class="articles">
+                <li>
+                    <span class="title">Economic Security in America</span>
+                    <span class="date">05/2023</span>
+                </li>
+                <li>
+                    <span class="title">Treasury Department Analysis</span>
+                    <span class="date">03/2023</span>
+                </li>
+                <li>
+                    <span class="title">Financial Crisis Retrospective</span>
+                    <span class="date">11/2022</span>
+                </li>
+                <li>
+                    <span class="title">Economic Research Methods</span>
+                    <span class="date">04/2022</span>
+                </li>
+                <li>
+                    <span class="title">International Economics Primer</span>
+                    <span class="date">09/2021</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="name">Michael Wakin</div>
+        <div class="bio">
+           <p>Michael Wakin is a freelance writer and DPhil (PhD) candidate in International Relations at St. Antony's College, Oxford.</p>
+
+           <p style="margin-top: 50px;">Michael has reported from around the world, including Argentina, Lebanon, South Africa, the United Arab Emirates, and the United Kingdom. He has interviewed former National Security Advisor H.R. McMaster, former Secretary of State George Shultz, and president emeritus of the Council on Foreign Relations Richard Haass. For his body of work, Michael was awarded the 2024 Overseas Press Club Foundation Scholar Award.</p>
+
+           <p style="margin-top: 20px;">At Oxford, his research interests include international economics, financial crises, geoeconomic risk, and economic security. He is the Senior Editor for Global Politics at the Oxford Political Review and an Editorial Assistant at Perspectives on Politics, as well as a Postgraduate Fellow at the Rothermere American Institute and Captain of the Oxford's M1 basketball program. Michael also works as an analyst for Aurora Macro Strategies, an independent advisory firm.</p>
+
+           <p style="margin-top: 20px;">Originally from New York City, Michael graduated with a bachelor's degree in economics from Kenyon College, after which he worked as a research analyst for the U.S. Department of the Treasury in Washington, D.C.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a subtle animation effect when the page loads
+            const categorySections = document.querySelectorAll('.category-section');
+            categorySections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.opacity = '0';
+                    section.style.opacity = '1';
+                    section.style.transition = 'opacity 0.5s ease';
+                }, index * 100);
+            });
+            
+            // Make the article items clickable
+            const articles = document.querySelectorAll('.articles li');
+            articles.forEach(article => {
+                article.addEventListener('click', function() {
+                    // This would typically load the article content
+                    const articleTitle = this.querySelector('.title').textContent;
+                    alert('Article "' + articleTitle + '" would be loaded here.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
