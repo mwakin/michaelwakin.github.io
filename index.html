@@ -183,36 +183,58 @@
             color:#5c5548;
         }
     </style>
-    <script>
-        // Completely disable WordPress external link popups
+<script>
+    // Aggressive popup blocking for WordPress external links
+    (function() {
+        'use strict';
+        
+        // Block all popup dialogs
+        window.alert = function() { return false; };
+        window.confirm = function() { return true; };
+        
+        // Override window.open to prevent confirmations
+        const originalOpen = window.open;
+        window.open = function(url, name, features) {
+            return originalOpen.call(window, url, '_blank', 'noopener,noreferrer');
+        };
+        
+        // Remove popups when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Remove any existing popup elements
-            const popups = document.querySelectorAll('[class*="popup"], [class*="warning"], [class*="external"], [id*="popup"]');
-            popups.forEach(popup => popup.remove());
+            // Hide all potential popup elements
+            const style = document.createElement('style');
+            style.textContent = `
+                .popup, .warning, .modal, .dialog,
+                [class*="popup"], [class*="warning"], [class*="external"], 
+                [class*="modal"], [class*="dialog"], [id*="popup"],
+                div[style*="position: fixed"], div[style*="z-index"] {
+                    display: none !important;
+                    visibility: hidden !important;
+                    opacity: 0 !important;
+                }
+            `;
+            document.head.appendChild(style);
             
-            // Override any WordPress popup functions
-            window.open = (function(originalOpen) {
-                return function(url, name, features) {
-                    // Remove any popup confirmation dialogs
-                    return originalOpen.call(window, url, name || '_blank', features);
-                };
-            })(window.open);
-            
-            // Block popup creation
-            if (typeof jQuery !== 'undefined') {
-                jQuery(document).off('click', 'a[href*="http"]:not([href*="' + window.location.hostname + '"])');
-            }
+            // Remove popup elements every 100ms
+            setInterval(function() {
+                const popups = document.querySelectorAll('.popup, .warning, .modal, [class*="popup"], [class*="warning"], [class*="external"], [id*="popup"]');
+                popups.forEach(popup => popup.remove());
+            }, 100);
         });
-    
-        // CSS to hide any remaining popups
-        const style = document.createElement('style');
-        style.textContent = `
-            .popup, .warning, [class*="external-link"], [class*="popup"], [id*="popup"] {
-                display: none !important;
-            }
-        `;
-        document.head.appendChild(style);
-        </script>
+        
+        // Block popup creation
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && (node.className.includes('popup') || node.className.includes('warning') || node.className.includes('modal'))) {
+                        node.remove();
+                    }
+                });
+            });
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+    })();
+    </script>
 
 
 </head>
