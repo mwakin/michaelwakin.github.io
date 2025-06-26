@@ -183,6 +183,38 @@
             color:#5c5548;
         }
     </style>
+    <script>
+        // Completely disable WordPress external link popups
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove any existing popup elements
+            const popups = document.querySelectorAll('[class*="popup"], [class*="warning"], [class*="external"], [id*="popup"]');
+            popups.forEach(popup => popup.remove());
+            
+            // Override any WordPress popup functions
+            window.open = (function(originalOpen) {
+                return function(url, name, features) {
+                    // Remove any popup confirmation dialogs
+                    return originalOpen.call(window, url, name || '_blank', features);
+                };
+            })(window.open);
+            
+            // Block popup creation
+            if (typeof jQuery !== 'undefined') {
+                jQuery(document).off('click', 'a[href*="http"]:not([href*="' + window.location.hostname + '"])');
+            }
+        });
+    
+        // CSS to hide any remaining popups
+        const style = document.createElement('style');
+        style.textContent = `
+            .popup, .warning, [class*="external-link"], [class*="popup"], [id*="popup"] {
+                display: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+        </script>
+
+
 </head>
 
 
