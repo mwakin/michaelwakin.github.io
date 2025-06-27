@@ -28,8 +28,8 @@
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
-            height: 100vh; /* Add this */
-            overflow: hidden; /* Add this */
+            height: 100vh;
+            overflow: hidden;
         }
         
         .sidebar {
@@ -37,18 +37,18 @@
             padding: 40px 25px;
             background-color: #FFFFFF;
             border-right: 1px solid #e6e1d6;
-            height: 100vh; /* Add this */
-            overflow-y: auto; /* Add this */
-            overflow-x: hidden; /* Add this */
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
         
         .content {
             flex: 1;
             padding: 40px;
             position: relative;
-            height: 100vh; /* Add this */
-            overflow-y: auto; /* Change from 'hidden' to 'auto' */
-            overflow-x: hidden; /* Add this to hide horizontal scroll */
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
         
         .name {
@@ -169,7 +169,7 @@
         }
 
         .contact {
-            margin-top: 20px; /* Changed from 50px to 20px for one line space */
+            margin-top: 20px;
         }
 
         .contact-title {
@@ -181,6 +181,88 @@
             font-size: 18px;
             line-height: 1.6;
             color:#5c5548;
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                order: 2; /* Move sidebar below content */
+                padding: 20px;
+                border-right: none;
+                border-top: 1px solid #e6e1d6;
+            }
+            
+            .content {
+                width: 100%;
+                height: auto;
+                order: 1; /* Keep content at top */
+                padding: 20px;
+                overflow: visible;
+            }
+            
+            .name {
+                position: static; /* Remove absolute positioning */
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+            
+            .bio {
+                margin-top: 0;
+                font-size: 16px;
+                max-width: 100%;
+            }
+            
+            .category {
+                font-size: 20px;
+            }
+            
+            .articles li {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 16px;
+            }
+            
+            .articles li .date {
+                margin-left: 0;
+                margin-top: 4px;
+            }
+            
+            .contact {
+                margin-top: 15px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Extra small screens */
+        @media screen and (max-width: 480px) {
+            .content, .sidebar {
+                padding: 15px;
+            }
+            
+            .name {
+                font-size: 22px;
+            }
+            
+            .bio {
+                font-size: 15px;
+            }
+            
+            .category {
+                font-size: 18px;
+            }
+            
+            .articles li {
+                font-size: 14px;
+            }
         }
     </style>
 <script>
