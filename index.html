@@ -184,62 +184,65 @@
         }
         /* REPLACE YOUR MOBILE CODE WITH THIS */
         @media (max-width: 768px) {
-            body {
-                flex-direction: row; /* Keep side-by-side layout */
-                height: 100vh;
-                overflow: hidden;
-            }
-    
-            .sidebar {
-                width: 50%; /* Make sidebar take half the screen */
-                height: 100vh;
-                border-right: 1px solid #e6e1d6;
-                padding: 15px;
-                font-size: 14px; /* Smaller text to fit */
-            }
-    
-            .content {
-                width: 50%; /* Make content take half the screen */
-                height: 100vh;
-                overflow-y: auto;
-                padding: 15px;
-            }
-    
-            .name {
-                position: static;
-                margin-bottom: 15px;
-                font-size: 20px;
-                text-align: left;
-            }
-    
-            .bio {
-                font-size: 14px;
-                margin-top: 15px;
-            }
-    
-            .category {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-    
-            .articles li {
-                margin-bottom: 8px;
-                font-size: 12px;
-            }
-    
-            .articles li .title {
-                font-size: 12px;
-            }
-    
-            .articles li .date {
-                font-size: 10px;
-                margin-left: 5px;
-            }
-    
-            .contact-info {
-                font-size: 14px;
-            }
-        }
+    body {
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .sidebar {
+        width: 40%; /* Reduced from 50% to give bio more space */
+        height: 100vh;
+        border-right: 1px solid #e6e1d6;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .content {
+        width: 60%; /* Increased from 50% to give bio more space */
+        height: 100vh;
+        overflow-y: auto;
+        padding: 15px;
+        padding-top: 60px; /* Add top padding so name isn't cut off */
+    }
+
+    .name {
+        position: absolute;
+        top: 10px; /* Move closer to top */
+        right: 15px; /* Adjust for mobile padding */
+        margin-bottom: 15px;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .bio {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .category {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .articles li {
+        margin-bottom: 6px;
+        font-size: 11px;
+    }
+
+    .articles li .title {
+        font-size: 11px;
+    }
+
+    .articles li .date {
+        font-size: 9px;
+        margin-left: 3px;
+    }
+
+    .contact-info {
+        font-size: 12px;
+    }
+}
     </style>
 <script>
     // Aggressive popup blocking for WordPress external links
